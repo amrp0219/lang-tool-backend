@@ -17,7 +17,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<ApplicationDBContext>(options =>
 {
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnectionString"));
+    options.UseNpgsql(System.Environment.GetEnvironmentVariable("POSTGRESS_CONNECTION"));
 });
 
 builder.Services.AddScoped<ITopicsRepository, TopicsRepository>();
